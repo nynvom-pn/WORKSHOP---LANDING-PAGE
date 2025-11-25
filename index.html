@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Xỏ Charm - Tiny Tags</title>
+    <style>
+        :root {
+            --primary-color: #8B0000; /* Màu đỏ đô */
+            --secondary-color: #FFD700; /* Màu vàng nhấn */
+            --light-color: #FFF5F5; /* Màu nền nhạt */
+            --dark-color: #330000; /* Màu chữ đậm */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .header-decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        /* Introduction Section */
+        .intro {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: white;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .intro-image {
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            background-color: #f0f0f0;
+            margin: 0 auto 30px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+        }
+        
+        .intro h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .intro p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: #ffed4a;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-large {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+        }
+        
+        /* Features Section */
+        .features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.feature {
+    background-color: white;
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    width: 250px;
+    height: 250px;
+}
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-image {
+            width: 250px;
+            height: 250px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 1rem;
+            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+        }
+        
+        /* Workshop Details */
+        .details {
+            background-color: white;
+            padding: 60px 20px;
+            margin: 40px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .details h2 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+        
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .detail-item {
+            padding: 20px;
+            border-left: 4px solid var(--primary-color);
+            background-color: var(--light-color);
+        }
+        
+        .detail-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        /* Registration Section */
+        .registration {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+        
+        .registration h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .registration p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .registration-form {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        /* Countdown */
+        .countdown {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .countdown h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .countdown-item {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            min-width: 80px;
+        }
+        
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+        
+        .modal h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .modal p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .intro-image {
+                height: 200px;
+            }
+            
+            .countdown-timer {
+                flex-wrap: wrap;
+            }
+            
+            .feature {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-decoration"></div>
+        <div class="header-content container">
+            <h1>WORKSHOP SÁNG TẠO CHARM XINH CÙNG TINY TAGS</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Introduction Section -->
+        <section class="intro">
+          
+                  <img src="assets/banner.png" class="intro-image">
+            
+            <h2>Bạn yêu thích xỏ charm nhưng lo ngại các công đoạn phức tạp?</h2>
+            <p>Đừng lo, workshop lần này sẽ giúp bạn khám phá niềm vui xỏ charm một cách nhẹ nhàng nhất. Bạn chỉ cần mang theo đam mê và niềm yêu thích, còn mọi thứ khó khăn cứ để Tiny Tags lo!</p>
+            
+            <a href="#registration" class="btn btn-large">ĐĂNG KÝ NGAY</a>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            
+                <h3>Charm cực xinh</h3>
+                <p>Với những nhân sự tay nghề cao, chúng tôi tin rằng sẽ mang đến cho bạn một trải nghiệm xỏ charm vừa thú vị, vừa dễ dàng, để mỗi món charm không chỉ đẹp mắt mà còn đong đầy niềm vui và sự sáng tạo!</p>
+            
+            <div class="feature">
+                <div class="feature-image">
+                    <img src="assets/1.jpg" class="feature-image">
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-image">
+                    <img src="assets/2.jpg" class="feature-image">
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-image">
+                    <img src="assets/3.jpg" class="feature-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Workshop Details -->
+        <section class="details">
+            <h2>THÔNG TIN CHI TIẾT</h2>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <h3>THỜI GIAN</h3>
+                    <p>22/10/2025 và 24/10/2025</p>
+                </div>
+                <div class="detail-item">
+                    <h3>ĐỊA ĐIỂM</h3>
+                    <p>Sảnh C UIT</p>
+                </div>
+                <div class="detail-item">
+                    <h3>SL NGƯỜI HƯỚNG DẪN</h3>
+                    <p>2</p>
+                </div>
+                <div class="detail-item">
+                    <h3>LƯỢNG KHÁCH THAM GIA</h3>
+                    <p>20 - 30</p>
+                </div>
+                <div class="detail-item">
+                    <h3>PHÍ THAM GIA</h3>
+                    <p>Dao động từ 35k - 60k, tùy sản phẩm</p>
+                </div>
+                <div class="detail-item">
+                    <h3>VOUCHER ƯU ĐÃI</h3>
+                    <p>Voucher giảm 5k -10k vào buổi workshop đầu tiên và voucher giảm 10% cho đơn hàng sau workshop</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Countdown -->
+        <section class="countdown">
+            <h3>THỜI GIAN ĐĂNG KÝ CHỈ CÒN</h3>
+            <div class="countdown-timer">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Ngày</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Giờ</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Phút</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Giây</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registration Section -->
+        <section class="registration" id="registration">
+            <h2>Để lại thông tin bên dưới để sở hữu ngay cho mình những món charm xinh xắn nhé</h2>
+            <form class="registration-form" id="registrationForm">
+                <div class="form-group">
+                    <label for="name">Họ và tên</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Số điện thoại</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <button type="submit" class="btn btn-large">ĐĂNG KÝ</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <h2>ĐĂNG KÝ THÀNH CÔNG!</h2>
+            <p>Cảm ơn bạn đã đăng ký tham gia workshop của Tiny Tags. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.</p>
+            <button class="btn" id="closeModal">Đóng</button>
+        </div>
+    </div>
+
+    <script>
+        // Form submission
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('successModal').style.display = 'flex';
+        });
+
+        // Close modal
+        document.getElementById('closeModal').addEventListener('click', function() {
+            document.getElementById('successModal').style.display = 'none';
+        });
+
+        // Countdown timer
+        function updateCountdown() {
+            // Set the date we're counting down to (workshop date)
+            const countDownDate = new Date("Nov 27, 2025 00:00:00").getTime();
+            
+            // Get today's date and time
+            const now = new Date().getTime();
+            
+            // Find the distance between now and the count down date
+            const distance = countDownDate - now;
+            
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+                return;
+            }
+            
+            // Time calculations for days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Display the results
+            document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+        }
+
+        // Update the count down every 1 second
+        const countdownInterval = setInterval(updateCountdown, 1000);
+
+        // Initialize countdown
+        updateCountdown();
+    </script>
+</body>
+</html>
