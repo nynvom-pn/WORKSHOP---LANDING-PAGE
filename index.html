@@ -6,10 +6,10 @@
     <title>Workshop Xỏ Charm - Tiny Tags</title>
     <style>
         :root {
-            --primary-color: #8B0000; /* Màu đỏ đô */
-            --secondary-color: #FFD700; /* Màu vàng nhấn */
-            --light-color: #FFF5F5; /* Màu nền nhạt */
-            --dark-color: #330000; /* Màu chữ đậm */
+            --primary-color: #8B0000;
+            --secondary-color: #FFD700;
+            --light-color: #FFF5F5;
+            --dark-color: #330000;
         }
         
         * {
@@ -56,16 +56,6 @@
             letter-spacing: 2px;
         }
         
-        .header-decoration {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.1;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
-        }
-        
         /* Introduction Section */
         .intro {
             padding: 60px 20px;
@@ -79,16 +69,10 @@
         .intro-image {
             width: 100%;
             max-width: 800px;
-            height: 500px;
-            background-color: #f0f0f0;
+            height: 400px;
             margin: 0 auto 30px;
             border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #888;
-            font-size: 1.2rem;
-            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+            object-fit: cover;
         }
         
         .intro h2 {
@@ -130,42 +114,38 @@
             font-size: 1.2rem;
         }
         
-        /* Features Section */
+        /* Features Section - ĐÃ SỬA */
         .features {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    margin: 40px 0;
-}
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+        }
 
-.feature {
-    background-color: white;
-    padding: 0;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    text-align: center;
-    transition: transform 0.3s ease;
-    overflow: hidden;
-    width: 250px;
-    height: 250px;
-}
+        .feature {
+            background-color: white;
+            padding: 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+            width: 250px;
+            height: 250px;
+        }
+
         .feature:hover {
             transform: translateY(-10px);
         }
-        
+
         .feature-image {
-            width: 250px;
-            height: 250px;
-            background-color: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #888;
-            font-size: 1rem;
-            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
-        
+
         /* Workshop Details */
         .details {
             background-color: white;
@@ -320,15 +300,11 @@
             }
             
             .intro-image {
-                height: 200px;
+                height: 250px;
             }
             
             .countdown-timer {
                 flex-wrap: wrap;
-            }
-            
-            .feature {
-                flex: 1 1 100%;
             }
         }
     </style>
@@ -336,7 +312,6 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="header-decoration"></div>
         <div class="header-content container">
             <h1>WORKSHOP SÁNG TẠO CHARM XINH CÙNG TINY TAGS</h1>
         </div>
@@ -345,8 +320,8 @@
     <div class="container">
         <!-- Introduction Section -->
         <section class="intro">
-          
-                  <img src="assets/banner.png" class="intro-image">
+            <!-- Sửa đường dẫn ảnh -->
+            <img src="./assets/banner.png" alt="Workshop Banner" class="intro-image">
             
             <h2>Bạn yêu thích xỏ charm nhưng lo ngại các công đoạn phức tạp?</h2>
             <p>Đừng lo, workshop lần này sẽ giúp bạn khám phá niềm vui xỏ charm một cách nhẹ nhàng nhất. Bạn chỉ cần mang theo đam mê và niềm yêu thích, còn mọi thứ khó khăn cứ để Tiny Tags lo!</p>
@@ -354,26 +329,16 @@
             <a href="#registration" class="btn btn-large">ĐĂNG KÝ NGAY</a>
         </section>
 
-        <!-- Features Section -->
+        <!-- Features Section - ĐÃ SỬA CẤU TRÚC -->
         <section class="features">
-            
-                <h3>Charm cực xinh</h3>
-                <p>Với những nhân sự tay nghề cao, chúng tôi tin rằng sẽ mang đến cho bạn một trải nghiệm xỏ charm vừa thú vị, vừa dễ dàng, để mỗi món charm không chỉ đẹp mắt mà còn đong đầy niềm vui và sự sáng tạo!</p>
-            
             <div class="feature">
-                <div class="feature-image">
-                    <img src="assets/1.jpg" class="feature-image">
-                </div>
+                <img src="./assets/1.jpg" alt="Charm 1" class="feature-image">
             </div>
             <div class="feature">
-                <div class="feature-image">
-                    <img src="assets/2.jpg" class="feature-image">
-                </div>
+                <img src="./assets/2.jpg" alt="Charm 2" class="feature-image">
             </div>
             <div class="feature">
-                <div class="feature-image">
-                    <img src="assets/3.jpg" class="feature-image">
-                </div>
+                <img src="./assets/3.jpg" alt="Charm 3" class="feature-image">
             </div>
         </section>
 
@@ -475,42 +440,27 @@
 
         // Countdown timer
         function updateCountdown() {
-            // Set the date we're counting down to (workshop date)
             const countDownDate = new Date("Nov 27, 2025 00:00:00").getTime();
-            
-            // Get today's date and time
             const now = new Date().getTime();
-            
-            // Find the distance between now and the count down date
             const distance = countDownDate - now;
             
-            // If the count down is finished, write some text
             if (distance < 0) {
                 clearInterval(countdownInterval);
-                document.getElementById("days").innerHTML = "00";
-                document.getElementById("hours").innerHTML = "00";
-                document.getElementById("minutes").innerHTML = "00";
-                document.getElementById("seconds").innerHTML = "00";
                 return;
             }
             
-            // Time calculations for days, hours, minutes and seconds
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
             
-            // Display the results
             document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
             document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
             document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
             document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
         }
 
-        // Update the count down every 1 second
         const countdownInterval = setInterval(updateCountdown, 1000);
-
-        // Initialize countdown
         updateCountdown();
     </script>
 </body>
